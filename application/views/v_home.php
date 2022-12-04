@@ -1,3 +1,8 @@
+<?php 
+if ($this->session->userdata('nama') == null) {
+redirect('login');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +18,7 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-light shadow">
         <div class="container">
-            <a class="navbar-brand fw-bold fs-3 text-primary" href="#">Perpustakaan</a>
+            <a class="navbar-brand fw-bold fs-3 text-primary" href="<?= base_url('perpus') ?>">Perpustakaan</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -30,6 +35,7 @@
     <div class="container mt-5">
         <div class="row d-flex justify-content-center">
             <div class="col-8">
+                <h3>Selamat Datang, <?= $this->session->userdata('nama') ?></h3>
                 <div class="card p-4">
                     <table class="table">
                         <thead>

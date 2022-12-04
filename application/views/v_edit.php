@@ -1,3 +1,8 @@
+<?php 
+if ($this->session->userdata('nama') == null) {
+redirect('login');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +18,7 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-light shadow">
         <div class="container">
-            <a class="navbar-brand fw-bold fs-3 text-primary" href="#">Perpustakaan</a>
+            <a class="navbar-brand fw-bold fs-3 text-primary" href="<?= base_url('perpus') ?>">Perpustakaan</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -52,7 +57,6 @@
                                                 Lengkap</label>
                                             <input type="text" class="form-control" value="<?= $p->nama; ?>" name="nama"
                                                 id="exampleInputEmail1" aria-describedby="emailHelp">
-                                            <!-- <?= form_error('nama_lengkap', '<div class="text-small text-danger">', '</div>') ?> -->
                                         </div>
                                     </div>
                                     <div class="col-6">
@@ -60,7 +64,6 @@
                                             <label for="exampleInputEmail1" class="form-label fw-bold">Nik</label>
                                             <input type="number" name="nik" value="<?= $p->nik; ?>" class="form-control"
                                                 id="">
-                                            <!-- <?= form_error('nis', '<div class="text-small text-danger">', '</div>') ?> -->
                                         </div>
                                     </div>
                                     <div class="col-6">
@@ -68,7 +71,6 @@
                                             <label for="exampleInputEmail1" class="form-label fw-bold">Nama Buku</label>
                                             <input type="text" value="<?= $p->nama_buku; ?>" name="nama_buku"
                                                 class="form-control" id="">
-                                            <!-- <?= form_error('nisn', '<div class="text-small text-danger">', '</div>') ?> -->
                                         </div>
                                     </div>
                                     <div class="col-6">
@@ -76,7 +78,6 @@
                                             <label for="exampleInputEmail1" class="form-label fw-bold">Kode Buku</label>
                                             <input type="number" value="<?= $p->kode_buku; ?>" name="kode_buku"
                                                 class="form-control" id="">
-                                            <!-- <?= form_error('nisn', '<div class="text-small text-danger">', '</div>') ?> -->
                                         </div>
                                     </div>
                                 </div>

@@ -1,3 +1,8 @@
+<?php 
+if ($this->session->userdata('nama') == null) {
+redirect('login');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +10,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Peminjam</title>
     <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css' rel='stylesheet'
         integrity='sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65' crossorigin='anonymous'>
 </head>
@@ -13,7 +18,7 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-light shadow">
         <div class="container">
-            <a class="navbar-brand fw-bold fs-3 text-primary" href="#">Perpustakaan</a>
+            <a class="navbar-brand fw-bold fs-3 text-primary" href="<?= base_url('perpus') ?>">Perpustakaan</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -47,30 +52,26 @@
                                         <div class="mb-3">
                                             <label for="exampleInputEmail1" class="form-label fw-bold">Nama
                                                 Lengkap</label>
-                                            <input type="text" class="form-control" name="nama" id="exampleInputEmail1"
-                                                aria-describedby="emailHelp">
-                                            <!-- <?= form_error('nama_lengkap', '<div class="text-small text-danger">', '</div>') ?> -->
+                                            <input type="text" class="form-control" required name="nama"
+                                                id="exampleInputEmail1" aria-describedby="emailHelp">
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="mb-3">
                                             <label for="exampleInputEmail1" class="form-label fw-bold">Nik</label>
-                                            <input type="number" name="nik" class="form-control" id="">
-                                            <!-- <?= form_error('nis', '<div class="text-small text-danger">', '</div>') ?> -->
+                                            <input type="number" name="nik" required class="form-control" id="">
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="mb-3">
                                             <label for="exampleInputEmail1" class="form-label fw-bold">Nama Buku</label>
-                                            <input type="text" name="nama_buku" class="form-control" id="">
-                                            <!-- <?= form_error('nisn', '<div class="text-small text-danger">', '</div>') ?> -->
+                                            <input type="text" name="nama_buku" required class="form-control" id="">
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="mb-3">
                                             <label for="exampleInputEmail1" class="form-label fw-bold">Kode Buku</label>
-                                            <input type="number" name="kode_buku" class="form-control" id="">
-                                            <!-- <?= form_error('nisn', '<div class="text-small text-danger">', '</div>') ?> -->
+                                            <input type="number" required name="kode_buku" class="form-control" id="">
                                         </div>
                                     </div>
                                 </div>

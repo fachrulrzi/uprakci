@@ -15,25 +15,26 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-4">
-                    <div class="card shadow">
+                    <?php 
+				if($this->session->flashdata('error') !='')
+				{
+					echo '  <div class="alert alert-danger alert-dismissible fade show" role="alert">';
+					echo $this->session->flashdata('error');
+					echo ' <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+				}
+				?>
+                    <div class="card">
                         <div class="card-header">
                             Form Register
                         </div>
                         <div class="card-body">
-                            <?php 
-				// if($this->session->flashdata('error') !='')
-				// {
-				// 	echo '<div class="alert alert-danger" role="alert">';
-				// 	echo $this->session->flashdata('error');
-				// 	echo '</div>';
-				// }
-				?>
+
                             <form method="post" action="<?php echo base_url('register/proses'); ?>">
                                 <div class="form-group mb-3">
                                     <label for="nama">Nama Lengkap</label>
                                     <input type="text" class="form-control" name="nama" id="nama"
-                                        placeholder="Nama Lengkap">
-                                    <?= form_error('nama', '<div class="text-small text-danger">', '</div>') ?>
+                                        placeholder="Enter Nama">
+
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="username">Username</label>
